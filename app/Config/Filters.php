@@ -18,7 +18,8 @@ class Filters extends BaseConfig
 	public $aliases = [
 		'csrf'     => CSRF::class,
 		'toolbar'  => DebugToolbar::class,
-		'honeypot' => Honeypot::class,
+		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
+		'usersAuth' => \App\Filters\UsersAuthFilter::class,
 	];
 
 	/**
@@ -29,8 +30,14 @@ class Filters extends BaseConfig
 	 */
 	public $globals = [
 		'before' => [
-			// 'honeypot',
-			// 'csrf',
+			'csrf',
+			'usersAuth' => [
+				'except' => [
+					'login/*',
+					'register/*',
+					'logout/*'
+				]
+			]
 		],
 		'after'  => [
 			'toolbar',
@@ -58,5 +65,6 @@ class Filters extends BaseConfig
 	 *
 	 * @var array
 	 */
-	public $filters = [];
+	public $filters = [
+	];
 }

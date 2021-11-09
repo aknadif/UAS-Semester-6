@@ -34,11 +34,35 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'barang::index');
-$routes->get('/barang/create', 'barang::create');
-$routes->get('/barang/ubah/(:segment)', 'barang::ubah/$1');
-$routes->delete('/barang/(:num)', 'Barang:delete/$1');
-$routes->get('/barang/(:any)', 'Barang::detail/$1');
+
+
+$routes->get('/login/register', 'Register::index');
+$routes->post('/login/register/process', 'Register::process');
+$routes->get('/login', 'Login::index');
+$routes->post('/login/process', 'Login::process');
+$routes->get('/logout', 'Login::logout');
+
+$routes->get('/', 'IndexController::index');
+
+$routes->get('/karyawan', 'KaryawanController::index');
+$routes->get('/karyawan/create', 'KaryawanController::create');
+$routes->get('/karyawan/ubah/(:segment)', 'KaryawanController::ubah/$1');
+$routes->get('/karyawan/kurang/(:segment)', 'KaryawanController::kurang/$1');
+$routes->delete('/karyawan/(:num)', 'KaryawanController:delete/$1');
+$routes->get('/karyawan/(:any)', 'KaryawanController::detail/$1');
+
+	$routes->get('/barang', 'barang::index');
+	$routes->get('/barang', 'login::level');
+	$routes->get('/barang/create', 'barang::create');
+	$routes->get('/barang/ubah/(:segment)', 'barang::ubah/$1');
+	$routes->get('/barang/kurang/(:segment)', 'barang::kurang/$1');
+	$routes->delete('/barang/(:num)', 'Barang:delete/$1');
+	$routes->get('/barang/(:any)', 'Barang::detail/$1');
+
+
+
+
+
 
 /*
  * --------------------------------------------------------------------

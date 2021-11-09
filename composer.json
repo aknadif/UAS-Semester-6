@@ -3,6 +3,7 @@
 	"type": "project",
 	"description": "The CodeIgniter framework v4",
 	"homepage": "https://codeigniter.com",
+	"minimum-stability": "beta",
 	"license": "MIT",
 	"require": {
 		"php": "^7.3||^8.0",

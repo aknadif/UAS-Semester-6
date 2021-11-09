@@ -13,13 +13,15 @@ class Barang extends BaseController{
 
     public function index()
     {
+        $session = session();
         $data =  [
             'nama_barang' => 'Daftar Barang',
-            'barang' => $this->barangModel->getBarang()
+            'barang' => $this->barangModel->getBarang(),
+            'level' => $session->get('level')
         ];
-        
         return view('barang/index', $data);
     }
+
 
     public function detail($id)
     {
@@ -80,6 +82,16 @@ class Barang extends BaseController{
             'barang' => $this->barangModel->getBarang($id)
         ];
         return view('barang/ubah', $data);
+    }
+    public function kurang($id)
+    {
+        session();
+        $data=[
+            'nama_barang' => 'Form Kurang Data Barang',
+            'validation' => \Config\Services::validation(),
+            'barang' => $this->barangModel->getBarang($id)
+        ];
+        return view('barang/kurang', $data); 
     }
 
     public function update($id)

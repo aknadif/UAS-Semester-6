@@ -51,7 +51,12 @@ label{
                                 <tr>  
                                     <td width="30%"><label class="fw-bold">Tanggal Inputan</label></td>  
                                     <td width="70%"><?= $barang['created_at']; ?></td>  
-                                </tr>  
+                                </tr> 
+                                <tr>  
+                                    <td width="30%"><label class="fw-bold">Tanggal Update</label></td>  
+                                    <td width="70%"><?= $barang['updated_at']; ?></td>  
+                                </tr>   
+
                             </table>
                         </div> 
                         <div class="text-end">

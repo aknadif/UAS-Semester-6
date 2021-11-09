@@ -26,7 +26,7 @@ label{
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1 class="text-center fw-bold mt-4">Tambah Barang Baru</h1>
+            <h1 class="text-center fw-bold mt-4">Tambah Stock Barang Baru</h1>
             <form action="<?= base_url('/barang/save');?>" method="post" enctype="multipart/form-data" class="mt-4">
             <?= csrf_field(); ?>
                         <div class="form-group  mb-3">
